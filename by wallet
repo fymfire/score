@@ -1,0 +1,30 @@
+Install the necessary libraries:
+shell
+Copy code
+pip install requests beautifulsoup4
+Import the required modules in your Python script:
+python
+Copy code
+import requests
+from bs4 import BeautifulSoup
+Send an HTTP GET request to the Gitcoin Passport profile page:
+python
+Copy code
+url = 'https://gitcoin.co/passport'
+response = requests.get(url)
+Parse the HTML content of the response using BeautifulSoup:
+python
+Copy code
+soup = BeautifulSoup(response.content, 'html.parser')
+Locate the element that contains the Passport score:
+python
+Copy code
+passport_score_element = soup.find('div', {'class': 'passport-score'})
+Extract the score value from the element:
+python
+Copy code
+passport_score = passport_score_element.text.strip()
+Print or use the Passport score as needed:
+python
+Copy code
+print('Gitcoin Passport Score:', passport_score)
